@@ -1,10 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-=======
-import { MainPage } from '../pages/Main';
-import { BoardPage } from '../pages/Board';
-
->>>>>>> 1effe184b7675380a59a569f0337845b14674f4f
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { MainPage, BoardPage } from 'pages';

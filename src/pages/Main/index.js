@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-<<<<<<< HEAD
 import { MainContainer } from 'containers/Main';
 import { Header, Footer, Modal, Portal } from 'components';
 import { HeaderButton } from 'styles';
 import { api } from 'utils/api';
-=======
-import { MainContainer } from '../../containers/Main';
-import { Header, Footer, Modal, Portal } from 'components';
-import { HeaderButton } from '../../styles';
-import { api } from '../../utils/api';
->>>>>>> 1effe184b7675380a59a569f0337845b14674f4f
 import { AuthPopup } from '../../containers/Main/AuthPopup';
 
 export function MainPage() {
@@ -115,25 +108,6 @@ export function MainPage() {
 
   return (
     <>
-<<<<<<< HEAD
-=======
-      <Header>
-        <HeaderButton
-          color="white"
-          background="#00BFA5"
-          onClick={() => handlePopup(0)}
-        >
-          로그인
-        </HeaderButton>
-        <HeaderButton
-          color="black"
-          background="lightgrey"
-          onClick={() => handlePopup(1)}
-        >
-          회원가입
-        </HeaderButton>
-      </Header>
->>>>>>> 1effe184b7675380a59a569f0337845b14674f4f
       <MainContainer />
       <Footer />
 
