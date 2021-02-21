@@ -1,72 +1,89 @@
-import React from 'react';
-// import "../../../assets/css/modal.css";
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { HeaderButton } from 'styles';
 
-export const Modal=  (props)=> {
-    const { open, close, header } = props;
+export function Modal({
+  title,
+  children,
+  confirmText,
+  cancelText,
+  onConfirm,
+  onCancel,
+  visible,
+}) {
+  const [animate, setAnimate] = useState(false);
+  const [localVisible, setLocalVisible] = useState(visible);
 
-    const Positioner = styled.div`
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 99;
-    background-color: rgba(0, 0, 0, 0.6);
-  `;
+  useEffect(() => {
+    // visible 값이 true -> false 가 되는 것을 감지
+    if (localVisible && !visible) {
+      setAnimate(true);
+      setTimeout(() => setAnimate(false), 250);
+    }
+    setLocalVisible(visible);
+  }, [localVisible, visible]);
 
-  const Wrapper = styled.div`
-  width: 90%;
-  max-width: 450px;
-  margin:0 auto;
-  border-radius: .3rem;
-  background-color: #fff;
-  animation: modal-show .3s;
-  overflow: hidden;
+  if (!animate && !localVisible) return null;
+
+  return (
+    <ModalWrapper>
+      <ModalContents>
+        <h3>{title}</h3>
+        <p>{children}</p>
+        <ButtonGroup>
+          <ShortMarginButton color="gray" onClick={onCancel}>
+            {cancelText}
+          </ShortMarginButton>
+          <ShortMarginButton color="pink" onClick={onConfirm}>
+            {confirmText}
+          </ShortMarginButton>
+        </ButtonGroup>
+      </ModalContents>
+    </ModalWrapper>
+  );
+}
+
+// 모달 딤
+const ModalWrapper = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
 `;
 
-
-const Header = styled.div`
-position: relative;
-padding: 16px 64px 16px 16px;
-background-color: #f1f1f1;
-font-weight: 700;
-button {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 30px;
-  font-size: 21px;
-  font-weight: 700;
+const ModalContents = styled.div`
+  width: 320px;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 2px;
   text-align: center;
-  color: #999;
-  background-color: transparent;
-}
+  h3 {
+    margin: 0;
+    font-size: 1.7rem;
+  }
+  p {
+    font-size: 1.125rem;
+  }
 `;
 
-const Contents = styled.div`
-padding: 16px;
-    border-bottom: 1px solid #dee2e6;
-    border-top: 1px solid #dee2e6;
+const ButtonGroup = styled.div`
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
 `;
 
+const ShortMarginButton = styled(HeaderButton)`
+  & + & {
+    margin-left: 0.5rem;
+  }
+`;
 
-
-    return (
-        <Positioner>
-            { open ? (  
-                <Wrapper>
-                    <Header>
-                        {header}
-                        <button className="close" onClick={close}> &times; </button>
-                    </Header>
-                    <Contents>
-                        {props.children}
-                    </Contents>
-                    
-                </Wrapper>
-            ) : null }
-        </Positioner>
-    )
-}
+Modal.defaultProps = {
+  confirmText: '확인',
+  cancelText: '취소',
+};

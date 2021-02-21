@@ -1,25 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Positioner = styled.div`
-height: 100vh;
+const posts = [{ id: 1 }, { id: 2 }, { id: 3 }];
 
+export function MainContainer() {
+	const postList = posts.map((post) => (
+		<div key={posts.id}>asdf</div>
+	));
+
+  return (
+    <Positioner>
+      <MainWrapper>메인페이지입니다</MainWrapper>
+
+      {postList}
+    </Positioner>
+  );
+}
+
+const Positioner = styled.div`
+  height: 100vh;
 `;
 
 const MainWrapper = styled.div`
-position: relative;
-padding-top: 50%;
-p {
   position: absolute;
-  right: 50%;
-}
-`
-
-export function MainContainer() {
-  return (
-  <Positioner>
-  <MainWrapper>
-  <p>메인페이지입니다</p>
-  </MainWrapper>
-  </Positioner>);
-}
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;

@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 const Button = styled.button`
+
   padding: 0.375rem 0.75rem;
   border-radius: 0.25rem;
   font-size: 1rem;
@@ -14,9 +15,9 @@ const Button = styled.button`
   background: ${(props) => props.background || "white"};
 `
 
-export function HeaderButton({ children, color, background }) {
+export function HeaderButton({ children, color, background, onClick }) {
   return (
-    <Button color={color} background={background} Î>
+    <Button  color={color} background={background} onClick={onClick}>
       {children}
     </Button>
   )
