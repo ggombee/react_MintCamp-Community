@@ -63,6 +63,7 @@ export function MainPage() {
   // email validation
   const isEmail = email => {
     /* eslint-disable-next-line */
+    // wntjr
     const emailRegex = /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     return emailRegex.test(email);
   };
