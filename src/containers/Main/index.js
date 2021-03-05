@@ -11,7 +11,6 @@ export function MainContainer() {
   return (
     <Positioner>
       <MainWrapper>메인페이지입니다</MainWrapper>
-
       {/*{postList}*/}
     </Positioner>
   );
