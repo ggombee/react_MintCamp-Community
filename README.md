@@ -1,4 +1,4 @@
-### 1. Summary
+# 1. Summary
 
 ## 1. Purpose of this project
 
@@ -16,7 +16,7 @@
 - base : create-react-app
 - style : styled-component
 
-### 2. Settings
+# 2. Settings
 
 ## 1. Available Scripts
 
