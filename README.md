@@ -1,6 +1,6 @@
 # 1. Summary
 
-## 1. Purpose of this project
+## 1. Purpose
 
 - Make function of basic commnuity Web service,,,
 - Develop community with Javascript, CRA without state management library (redux, mobx, recoli,,) aiming to strengthen the basics of React.
@@ -10,11 +10,11 @@
 - Think about why React use Atomic Design.
 
 
-## 2.  About this Toy-project
+## 2. About
 
-- title : "MintCamp" 
-- base : create-react-app
-- style : styled-component
+- Title : "MintCamp" 
+- Base : create-react-app
+- Styles : styled-component
 
 # 2. Settings
 
@@ -32,7 +32,7 @@ Open http://localhost:3000 to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-## 2. Structure of Folder
+## 2. Structure of Folders
 
 > src
 > <br>
@@ -53,25 +53,25 @@ You will also see any lint errors in the console.
 > > > <br>
 > > > ui
 
-1. components (presentation components)
+1. Components (presentation components)
 
 - Smallest unit of functional groups such as multiple combinations of ui and charts below the list.
 
-2. containers (container components)
+2. Containers (container components)
 
 - Collections of components (1:N) transfers data to the components and performs actions accoring to user actions.
 
-3. pages 
+3. Pages 
 
 - Responsible for one page.
 - Basically responds 1:1 with Helmet information, server data initially requested from the server, and container.
 
-4. routers
+4. Routers
 
 - Page to route SPA, Using 'react-router-dom'.
 - Base : RootRouter
 
-5. utils (common utility)
+5. Utils (common utility)
 
 - A file of functions that are commonly used including custom hooks.
 - Include axios module setting file, that makes a request ro the server. (ex)api.ts or setupAxios.js)
@@ -89,7 +89,7 @@ api
 .catch(e => {});
   ```
 
-6. styles
+6. Styles
 
 - assets : A file containing images and fonts file..
 - ui : smallest unit of ui (ex)Button.js)
